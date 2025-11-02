@@ -13,15 +13,13 @@ path_sub_text = os.path.join(path_main , name_sub_text)
 name_sub_pdf = "pdf files"
 path_sub_pdf = os.path.join(path_main , name_sub_pdf)
 
-for i in os.listdir(path_main):
-    if i.endswith(".txt") :
+if any(f.endswith(".txt") for f in os.listdir(path_main)):
+    if not os.path.exists(path_sub_text):
         os.mkdir(path_sub_text)
-        break
 
-for i in os.listdir(path_main):
-    if i.endswith(".pdf") :
+if any(f.endswith(".pdf") for f in os.listdir(path_main)):
+    if not os.path.exists(path_sub_pdf):
         os.mkdir(path_sub_pdf)
-        break
 
 
 for f in os.listdir(path_main):
